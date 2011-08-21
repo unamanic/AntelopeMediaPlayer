@@ -2,7 +2,7 @@
 <manifest android:versionCode="1" android:versionName="1.0"
     package="com.manicware.antelope" xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="8"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:label="@string/app_name" android:name="MainActivity">
             <intent-filter>
@@ -11,22 +11,23 @@
             </intent-filter>
         </activity>
         <service android:name=".MusicService">
-             <intent-filter>
-                <action android:name="com.manicware.antelope.action.PLAY" />
-                <action android:name="com.manicware.antelope.action.PAUSE" />
-                <action android:name="com.manicware.antelope.action.SKIP" />
-                <action android:name="com.manicware.antelope.action.REWIND" />
-                <action android:name="com.manicware.antelope.action.STOP" />
+            <intent-filter>
+                <action android:name="com.manicware.antelope.action.PLAY"/>
+                <action android:name="com.manicware.antelope.action.PAUSE"/>
+                <action android:name="com.manicware.antelope.action.SKIP"/>
+                <action android:name="com.manicware.antelope.action.REWIND"/>
+                <action android:name="com.manicware.antelope.action.STOP"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="com.manicware.antelope.action.URL" />
-                <data android:scheme="http" />
-            </intent-filter>        
+                <action android:name="com.manicware.antelope.action.URL"/>
+                <data android:scheme="http"/>
+            </intent-filter>
         </service>
         <receiver android:name=".MusicIntentReceiver">
             <intent-filter>
-                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
             </intent-filter>
         </receiver>
+        <activity android:name=".About"/>
     </application>
 </manifest>

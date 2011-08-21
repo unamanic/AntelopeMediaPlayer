@@ -1,21 +1,36 @@
+/** Antelope Media Player - Media player for Android
+  * Copyright (C) 2011  William C. Witt
+  * 
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  * 
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  * 
+  * You should have received a copy of the GNU General Public License
+  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  */
+
 package com.manicware.antelope;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.EditText;
 import android.widget.ToggleButton;
 
 public class MainActivity extends Activity implements OnClickListener, OnCheckedChangeListener {
-	final String SUGGESTED_URL = "http://www.vorbis.com/music/Epoq-Lepidoptera.ogg";
+    private static final int ABOUT_ID = Menu.FIRST;
 	
 	private Button mPlayButton;
 	private Button mPrevButton;
@@ -69,29 +84,27 @@ public class MainActivity extends Activity implements OnClickListener, OnChecked
 		}
 	}
 	
-    void showUrlDialog() {
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
-        alertBuilder.setTitle("Manual Input");
-        alertBuilder.setMessage("Enter a URL (must be http://)");
-        final EditText input = new EditText(this);
-        alertBuilder.setView(input);
+   
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.add(0, ABOUT_ID, 0, R.string.about_menu);
+        return true;
+    }
 
-        input.setText(SUGGESTED_URL);
-
-        alertBuilder.setPositiveButton("Play!", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dlg, int whichButton) {
-                // Send an intent with the URL of the song to play. This is expected by
-                // MusicService.
-                Intent i = new Intent(MusicService.ACTION_URL);
-                Uri uri = Uri.parse(input.getText().toString());
-                i.setData(uri);
-                startService(i);
-            }
-        });
-        alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dlg, int whichButton) {}
-        });
-
-        alertBuilder.show();
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        switch(item.getItemId()) {
+        case ABOUT_ID:
+            aboutShow();
+            return true;
+        }
+        
+        return super.onMenuItemSelected(featureId, item);
+    }
+    
+    private void aboutShow() {
+    	Intent i = new Intent(this, About.class);
+        startActivity(i);
     }
 }
