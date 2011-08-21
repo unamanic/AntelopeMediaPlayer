@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1" android:orientation="vertical">
+    <LinearLayout android:id="@+id/linearLayout4" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:layout_height="wrap_content" android:text="@string/repeat_toggle" android:id="@+id/repeat_label" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="left" android:layout_weight="1" android:layout_width="0dp"></TextView>
+        <TextView android:layout_height="wrap_content" android:text="@string/shuffle_toggle" android:id="@+id/shuffle_label" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="center_vertical" android:layout_weight="1" android:layout_width="0dp"></TextView>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <ToggleButton android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/repeatToggle" android:text="@string/repeat_toggle" android:layout_width="0dp"></ToggleButton>
+        <ToggleButton android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/shuffleToggle" android:text="@string/shuffle_toggle" android:layout_width="0dp"></ToggleButton>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <TextView android:layout_height="wrap_content" android:text="Artist - Song" android:id="@+id/song_label" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="match_parent" android:layout_gravity="center_vertical"></TextView>
+    </LinearLayout>
+    <ImageView android:id="@+id/imageView1" android:src="@drawable/icon" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1"></ImageView>
+    <LinearLayout android:id="@+id/linearLayout3" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <Button android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/prev_button" android:id="@+id/prevButton" android:layout_width="0dp"></Button>
+        <Button android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/play_button" android:id="@+id/playButton" android:layout_width="0dp"></Button>
+        <Button android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/next_button" android:id="@+id/nextButton" android:layout_width="0dp"></Button>
+    </LinearLayout>
+    <SeekBar android:layout_height="wrap_content" android:id="@+id/seekBar1" android:layout_width="match_parent"></SeekBar>
+
+
+</LinearLayout>

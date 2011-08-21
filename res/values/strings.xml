@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="hello">Hello World</string>
+    <string name="app_name">Antelope Media Player</string>
+    <string name="repeat_toggle">Repeat</string>
+    <string name="shuffle_toggle">Shuffle</string>
+    <string name="prev_button">Prev</string>
+    <string name="next_button">Next</string>
+    <string name="play_button">Play</string>
+    <string name="pause_button">Pause</string>
+</resources>
